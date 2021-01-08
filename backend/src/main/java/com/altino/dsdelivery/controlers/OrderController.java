@@ -31,11 +31,11 @@ public class OrderController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<OrderDTO> insert(@RequestBody OrderDTO dto) {
-		dto = service.insert(dto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
-		return ResponseEntity.created(uri).body(dto);
-	}
+    public ResponseEntity<OrderDTO> insert(@RequestBody OrderDTO dto) {
+        dto = service.insert(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+        return ResponseEntity.created(uri).body(dto);
+    }
 	
 	@PutMapping("/{id}/delivered")
 	public ResponseEntity<OrderDTO> setDelivered(@PathVariable Long id) {
